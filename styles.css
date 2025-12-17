@@ -825,7 +825,7 @@ body {
 .radio-label {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
     padding: 14px 16px;
     background: var(--bg-primary);
     border: 2px solid var(--border-light);
@@ -846,12 +846,13 @@ body {
     cursor: pointer;
     accent-color: var(--primary);
     margin: 0;
-    vertical-align: middle;
+    flex-shrink: 0;
 }
 
 .radio-label span {
     color: var(--text-primary);
     font-size: 15px;
+    line-height: 20px;
 }
 
 .submit-button {
