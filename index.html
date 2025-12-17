@@ -38,8 +38,8 @@
             </div>
 
             <div class="cta-section">
-                <button onclick="openModal()" class="signup-button">Get Early Access</button>
-                <p class="contact-text">Join the shred revolution - early access spots are limited</p>
+                <button onclick="openModal()" class="signup-button">Share Your Feedback</button>
+                <p class="contact-text">Help us launch - takes 30 seconds</p>
             </div>
 
             <div class="features">
@@ -69,46 +69,52 @@
         </div>
     </div>
 
-    <!-- Two-Step Signup Modal -->
+    <!-- Feedback Modal -->
     <div id="signupModal" class="modal" onclick="closeModalOnBackdrop(event)">
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
             
-            <!-- Step 1: Email Collection -->
-            <div id="step1" class="modal-step active">
-                <h2 class="modal-title">Join the Shred Revolution</h2>
-                <p class="modal-subtitle">Sign up for early access and exclusive launch updates</p>
-                
-                <form id="emailForm" action="https://docs.google.com/forms/d/e/1FAIpQLSd4ZxeT7qFav6mhNVUNVsDiAxlmRQqLZd25Sa5rbp99-xc4Cg/formResponse" method="POST" target="hidden_iframe" onsubmit="handleEmailSubmit(event)">
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="entry.1885298778" placeholder="your@email.com" required>
-                    </div>
-                    
-                    <button type="submit" class="submit-button">Get Early Access</button>
-                </form>
-            </div>
-
-            <!-- Step 2: Survey -->
-            <div id="step2" class="modal-step">
+            <div id="feedbackForm" class="modal-step active">
                 <h2 class="modal-title">Help Us Launch!</h2>
-                <p class="modal-subtitle">This information would really help our development and funding</p>
+                <p class="modal-subtitle">This information will really help get the funding we need!</p>
                 
-                <form id="surveyForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdRTmF9nsdtToV0IPyDhAedjxXY_z15l0A26T4OPoLSGRImwA/formResponse" method="POST" target="hidden_iframe" onsubmit="handleSurveySubmit(event)">
+                <form id="surveyForm" action="https://docs.google.com/forms/d/e/1FAIpQLSdH-P3D5Qigfi_Rn4x5mhjbOEsZ6SuzGesnH2AgwyszHDH1cQ/formResponse" method="POST" target="hidden_iframe" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label class="survey-question">How valuable would hands-free video of your runs be to you?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="entry.1980933630" value="Extremely valuable" required>
+                                <span>Extremely valuable</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="entry.1980933630" value="Somewhat valuable">
+                                <span>Somewhat valuable</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="entry.1980933630" value="Nice to have">
+                                <span>Nice to have</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="entry.1980933630" value="Not that useful">
+                                <span>Not that useful</span>
+                            </label>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label class="survey-question">Would you pay for unlimited footage with these passes?</label>
                         <div class="pricing-options">
                             <div class="pricing-option">
                                 <span class="price">$9.99</span>
-                                <span class="period">1-day unlimited pass</span>
+                                <span class="period">1-day pass</span>
                             </div>
                             <div class="pricing-option">
                                 <span class="price">$24.99</span>
-                                <span class="period">3-day unlimited pass</span>
+                                <span class="period">3-day pass</span>
                             </div>
                             <div class="pricing-option">
                                 <span class="price">$49.99</span>
-                                <span class="period">Season unlimited pass</span>
+                                <span class="period">Season pass</span>
                             </div>
                         </div>
                         
@@ -125,16 +131,21 @@
                     </div>
 
                     <div class="form-group" id="altPriceGroup" style="display: none;">
-                        <label for="altPrice">If not, what prices would you pay?</label>
+                        <label for="altPrice">If not, what would you pay?</label>
                         <input type="text" id="altPrice" name="entry.1885298778" placeholder="e.g., $5 for 1-day, $15 for 3-day, $30 for season">
                     </div>
                     
                     <div class="form-group">
                         <label for="comments">Any additional comments or feedback?</label>
-                        <textarea id="comments" name="entry.1514345205" rows="4" placeholder="Your thoughts help us build something awesome..."></textarea>
+                        <textarea id="comments" name="entry.1514345205" rows="3" placeholder="Your thoughts help us build something awesome..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Want early access or to see this launch? Leave your email (optional)</label>
+                        <input type="email" id="email" name="entry.653679721" placeholder="your@email.com">
                     </div>
                     
-                    <button type="submit" class="submit-button">Thank You for Helping Us Launch!</button>
+                    <button type="submit" class="submit-button">Submit Feedback</button>
                 </form>
             </div>
 
@@ -144,8 +155,8 @@
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                     <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
-                <h3>You're In!</h3>
-                <p>Thanks for your feedback. We can't wait to capture your best runs! 🎿</p>
+                <h3>Thank You!</h3>
+                <p>Your feedback helps us build something awesome. We can't wait to capture your best runs!</p>
             </div>
         </div>
     </div>
@@ -162,11 +173,8 @@
             document.getElementById('signupModal').classList.remove('active');
             document.body.style.overflow = 'auto';
             setTimeout(() => {
-                // Reset to step 1
-                document.getElementById('step1').classList.add('active');
-                document.getElementById('step2').classList.remove('active');
+                document.getElementById('feedbackForm').classList.add('active');
                 document.getElementById('successMessage').style.display = 'none';
-                document.getElementById('emailForm').reset();
                 document.getElementById('surveyForm').reset();
                 document.getElementById('altPriceGroup').style.display = 'none';
             }, 300);
@@ -178,47 +186,23 @@
             }
         }
 
-        function handleEmailSubmit(event) {
+        function handleSubmit(event) {
             event.preventDefault();
             const form = event.target;
             
-            // Submit email to Google Forms
             fetch(form.action, {
                 method: 'POST',
                 body: new FormData(form),
                 mode: 'no-cors'
             }).then(() => {
-                // Move to step 2 (survey)
-                document.getElementById('step1').classList.remove('active');
-                document.getElementById('step2').classList.add('active');
-            }).catch(() => {
-                // Still move to step 2 since no-cors doesn't give response
-                document.getElementById('step1').classList.remove('active');
-                document.getElementById('step2').classList.add('active');
-            });
-        }
-
-        function handleSurveySubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            
-            // Submit survey to Google Forms
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                mode: 'no-cors'
-            }).then(() => {
-                // Show success message
-                document.getElementById('step2').classList.remove('active');
+                document.getElementById('feedbackForm').classList.remove('active');
                 document.getElementById('successMessage').style.display = 'block';
                 
-                // Close modal after 3 seconds
                 setTimeout(() => {
                     closeModal();
                 }, 3000);
             }).catch(() => {
-                // Still show success
-                document.getElementById('step2').classList.remove('active');
+                document.getElementById('feedbackForm').classList.remove('active');
                 document.getElementById('successMessage').style.display = 'block';
                 
                 setTimeout(() => {
@@ -233,10 +217,8 @@
             
             if (show) {
                 altPriceGroup.style.display = 'block';
-                altPriceInput.required = true;
             } else {
                 altPriceGroup.style.display = 'none';
-                altPriceInput.required = false;
                 altPriceInput.value = '';
             }
         }
