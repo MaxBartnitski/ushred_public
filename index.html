@@ -24,7 +24,9 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <div class="header-logo-placeholder"></div>
+            <a href="#" class="header-logo">
+                <img src="UShredLogo.png" alt="UShred" class="header-logo-img">
+            </a>
             <nav class="header-nav">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#how-it-works" class="nav-link">How It Works</a>
@@ -32,11 +34,6 @@
             </nav>
         </div>
     </header>
-
-    <!-- Flying Logo (single logo that moves) -->
-    <a href="#" class="flying-logo" id="flyingLogo">
-        <img src="UShredLogo.png" alt="UShred Logo" class="flying-logo-img">
-    </a>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -46,8 +43,8 @@
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
-            <div class="hero-logo-container" id="heroLogoContainer">
-                <!-- Placeholder for positioning reference -->
+            <div class="hero-logo-container">
+                <img src="UShredLogo.png" alt="UShred Logo" class="hero-logo">
             </div>
             <h1 class="hero-title">Capture Every Run.<br>Relive Every Moment.</h1>
             <p class="hero-subtitle">Hands-free video capture for skiers and snowboarders. Fixed cameras at key locations capture your runs automatically.</p>
@@ -419,62 +416,22 @@
             }
         });
 
-        // Header scroll effect and flying logo
-        const flyingLogo = document.getElementById('flyingLogo');
-        const heroLogoContainer = document.getElementById('heroLogoContainer');
-        
-        function updateLogoPosition() {
+        // Header scroll effect with logo fade
+        window.addEventListener('scroll', () => {
             const header = document.querySelector('.header');
-            const heroRect = heroLogoContainer.getBoundingClientRect();
-            const headerPlaceholder = document.querySelector('.header-logo-placeholder');
-            const headerRect = headerPlaceholder.getBoundingClientRect();
+            const heroLogo = document.querySelector('.hero-logo-container');
+            const headerLogo = document.querySelector('.header-logo');
             
-            // Calculate when the hero logo reaches the top area
-            const triggerPoint = window.innerHeight * 0.3; // When hero logo is 30% from top
-            const scrollProgress = Math.min(Math.max((triggerPoint - heroRect.top) / triggerPoint, 0), 1);
-            
-            if (scrollProgress > 0) {
+            if (window.scrollY > 100) {
                 header.classList.add('scrolled');
-                
-                // Interpolate position from hero center to header
-                const startX = heroRect.left + heroRect.width / 2 - 25; // Center of hero logo area
-                const startY = heroRect.top + heroRect.height / 2 - 25;
-                const endX = headerRect.left;
-                const endY = headerRect.top + headerRect.height / 2 - 20;
-                
-                const currentX = startX + (endX - startX) * scrollProgress;
-                const currentY = startY + (endY - startY) * scrollProgress;
-                
-                // Scale from hero size to header size
-                const startScale = 4; // Hero logo is larger
-                const endScale = 1;
-                const currentScale = startScale + (endScale - startScale) * scrollProgress;
-                
-                flyingLogo.style.position = 'fixed';
-                flyingLogo.style.left = currentX + 'px';
-                flyingLogo.style.top = currentY + 'px';
-                flyingLogo.style.transform = `scale(${currentScale})`;
-                flyingLogo.classList.add('in-header');
+                heroLogo.classList.add('hidden');
+                headerLogo.classList.add('visible');
             } else {
                 header.classList.remove('scrolled');
-                
-                // Reset to hero position (centered)
-                const heroCenter = heroRect.left + heroRect.width / 2;
-                const heroTop = heroRect.top + heroRect.height / 2;
-                
-                flyingLogo.style.position = 'fixed';
-                flyingLogo.style.left = (heroCenter - 25) + 'px';
-                flyingLogo.style.top = (heroTop - 25) + 'px';
-                flyingLogo.style.transform = 'scale(4)';
-                flyingLogo.classList.remove('in-header');
+                heroLogo.classList.remove('hidden');
+                headerLogo.classList.remove('visible');
             }
-        }
-        
-        window.addEventListener('scroll', updateLogoPosition);
-        window.addEventListener('resize', updateLogoPosition);
-        
-        // Initial position
-        setTimeout(updateLogoPosition, 100);
+        });
     </script>
 </body>
 </html>
