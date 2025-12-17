@@ -155,6 +155,14 @@ body {
     object-position: center 30%;
 }
 
+.hero-image-mobile {
+    display: none;
+}
+
+.hero-image-desktop {
+    display: block;
+}
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -948,6 +956,14 @@ body {
 @media (max-width: 768px) {
     .header-nav {
         display: none;
+    }
+
+    .hero-image-desktop {
+        display: none;
+    }
+
+    .hero-image-mobile {
+        display: block;
     }
 
     .hero-content {
