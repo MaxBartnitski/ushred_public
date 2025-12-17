@@ -112,7 +112,7 @@ body {
 }
 
 .nav-link {
-    color: var(--text-light);
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
     font-size: 15px;
@@ -152,7 +152,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 30%;
 }
 
 .hero-overlay {
@@ -162,10 +162,10 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.85) 0%,
-        rgba(30, 41, 59, 0.75) 50%,
-        rgba(15, 23, 42, 0.85) 100%
+        180deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.1) 40%,
+        rgba(255, 255, 255, 0.3) 100%
     );
 }
 
@@ -183,36 +183,37 @@ body {
 }
 
 .hero-logo {
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
     object-fit: contain;
-    border-radius: 24px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
 }
 
 .hero-title {
-    font-size: 56px;
+    font-size: 52px;
     font-weight: 800;
-    color: var(--white);
+    color: var(--dark-slate);
     line-height: 1.1;
     margin-bottom: 24px;
     animation: fadeInUp 0.8s ease-out 0.1s both;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
 }
 
 .hero-subtitle {
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 18px;
+    color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto 40px;
-    line-height: 1.6;
+    line-height: 1.7;
     animation: fadeInUp 0.8s ease-out 0.2s both;
+    text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
 }
 
 .hero-cta {
     display: inline-block;
     padding: 16px 40px;
-    background: var(--primary);
+    background: var(--dark-slate);
     color: var(--white);
     font-size: 18px;
     font-weight: 600;
@@ -220,14 +221,14 @@ body {
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.35);
     animation: fadeInUp 0.8s ease-out 0.3s both;
 }
 
 .hero-cta:hover {
-    background: var(--primary-dark);
+    background: var(--primary);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 12px 32px rgba(59, 130, 246, 0.4);
 }
 
 @keyframes fadeInUp {
