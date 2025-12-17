@@ -964,6 +964,7 @@ body {
 
     .hero-image-mobile {
         display: block;
+        object-position: center right;
     }
 
     .hero-content {
