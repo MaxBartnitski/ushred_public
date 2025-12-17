@@ -961,7 +961,11 @@ body {
 
 @media (max-width: 768px) {
     .header-nav {
-        display: none;
+        gap: 12px;
+    }
+
+    .nav-link {
+        font-size: 13px;
     }
 
     .hero-image-desktop {
