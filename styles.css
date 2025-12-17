@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 :root {
     /* Primary brand colors */
     --primary: #3B82F6;
@@ -116,15 +112,17 @@ body {
 }
 
 .nav-link {
-    color: var(--text-primary);
+    color: var(--white);
     text-decoration: none;
     font-weight: 500;
     font-size: 15px;
     transition: color 0.2s ease;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .header.scrolled .nav-link {
     color: var(--text-primary);
+    text-shadow: none;
 }
 
 .nav-link:hover {
@@ -258,9 +256,8 @@ body {
    About Section
    ============================================ */
 .about {
-    padding: 120px 0 100px;
+    padding: 100px 0;
     background: var(--white);
-    scroll-margin-top: 80px;
 }
 
 .section-title {
@@ -330,9 +327,8 @@ body {
    How It Works Section
    ============================================ */
 .how-it-works {
-    padding: 120px 0 100px;
+    padding: 100px 0;
     background: var(--bg-secondary);
-    scroll-margin-top: 80px;
 }
 
 .steps-container {
@@ -396,9 +392,8 @@ body {
    Pricing Section
    ============================================ */
 .pricing {
-    padding: 120px 0 100px;
+    padding: 100px 0;
     background: var(--white);
-    scroll-margin-top: 80px;
 }
 
 .pricing-grid {
@@ -966,12 +961,7 @@ body {
 
 @media (max-width: 768px) {
     .header-nav {
-        display: flex;
-        gap: 16px;
-    }
-
-    .nav-link {
-        font-size: 14px;
+        display: none;
     }
 
     .hero-image-desktop {
