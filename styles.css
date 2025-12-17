@@ -845,6 +845,8 @@ body {
     height: 20px;
     cursor: pointer;
     accent-color: var(--primary);
+    margin: 0;
+    vertical-align: middle;
 }
 
 .radio-label span {
