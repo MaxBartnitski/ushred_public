@@ -964,7 +964,7 @@ body {
 
     .hero-image-mobile {
         display: block;
-        object-position: center right;
+        object-position: 40% center;
     }
 
     .hero-content {
