@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     /* Primary brand colors */
     --primary: #3B82F6;
@@ -254,8 +258,9 @@ body {
    About Section
    ============================================ */
 .about {
-    padding: 100px 0;
+    padding: 120px 0 100px;
     background: var(--white);
+    scroll-margin-top: 80px;
 }
 
 .section-title {
@@ -325,8 +330,9 @@ body {
    How It Works Section
    ============================================ */
 .how-it-works {
-    padding: 100px 0;
+    padding: 120px 0 100px;
     background: var(--bg-secondary);
+    scroll-margin-top: 80px;
 }
 
 .steps-container {
@@ -390,8 +396,9 @@ body {
    Pricing Section
    ============================================ */
 .pricing {
-    padding: 100px 0;
+    padding: 120px 0 100px;
     background: var(--white);
+    scroll-margin-top: 80px;
 }
 
 .pricing-grid {
@@ -959,7 +966,12 @@ body {
 
 @media (max-width: 768px) {
     .header-nav {
-        display: none;
+        display: flex;
+        gap: 16px;
+    }
+
+    .nav-link {
+        font-size: 14px;
     }
 
     .hero-image-desktop {
