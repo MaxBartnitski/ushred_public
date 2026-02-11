@@ -47,8 +47,8 @@
                 <img src="UShredLogo.png" alt="UShred Logo" class="hero-logo">
             </div>
             <h1 class="hero-title">Capture Every Run.<br>Relive Every Moment.</h1>
-            <p class="hero-subtitle">Hands-free video capture for skiers and snowboarders. Fixed cameras at key locations capture your runs automatically.</p>
-            <a href="mailto:info@ushred.co?subject=UShred%20Pilot%20Inquiry" class="hero-cta">Get in Touch</a>
+            <p class="hero-subtitle">Hands-free video capture for skiers, snowboarders, and mountain bikers. Fixed cameras at key locations capture your runs automatically.</p>
+            <button onclick="openContactModal()" class="hero-cta">Get in Touch</button>
         </div>
     </section>
 
@@ -150,54 +150,27 @@
             <h2 class="section-title">Simple Pricing</h2>
             <p class="section-subtitle">Unlimited video capture at one flat rate. No per-clip fees, no surprises.</p>
             
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="pricing-name">Day Pass</h3>
-                        <div class="pricing-price">
-                            <span class="price-amount">$9.99</span>
-                            <span class="price-period">/ day</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Unlimited captures</li>
-                        <li>HD video quality</li>
-                        <li>Instant delivery</li>
-                        <li>Download & share</li>
-                    </ul>
+            <div class="pricing-features-box">
+                <ul class="pricing-features-list">
+                    <li>Unlimited captures</li>
+                    <li>HD video quality</li>
+                    <li>Instant delivery</li>
+                    <li>Download & share</li>
+                </ul>
+            </div>
+            
+            <div class="pricing-options">
+                <div class="pricing-option">
+                    <span class="pricing-option-name">Day Pass</span>
+                    <span class="pricing-option-price">$9.99</span>
                 </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="pricing-name">3-Day Pass</h3>
-                        <div class="pricing-price">
-                            <span class="price-amount">$24.99</span>
-                            <span class="price-period">/ 3 days</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Unlimited captures</li>
-                        <li>HD video quality</li>
-                        <li>Instant delivery</li>
-                        <li>Download & share</li>
-                    </ul>
+                <div class="pricing-option">
+                    <span class="pricing-option-name">3-Day Pass</span>
+                    <span class="pricing-option-price">$24.99</span>
                 </div>
-                
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <h3 class="pricing-name">Season Pass</h3>
-                        <div class="pricing-price">
-                            <span class="price-amount">$49.99</span>
-                            <span class="price-period">/ season</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-features">
-                        <li>Unlimited captures</li>
-                        <li>HD video quality</li>
-                        <li>Instant delivery</li>
-                        <li>Download & share</li>
-                        <li>All season long</li>
-                    </ul>
+                <div class="pricing-option">
+                    <span class="pricing-option-name">Season Pass</span>
+                    <span class="pricing-option-price">$49.99</span>
                 </div>
             </div>
         </div>
@@ -208,9 +181,30 @@
         <div class="container">
             <h2 class="cta-title">Bring UShred to Your Resort</h2>
             <p class="cta-subtitle">Interested in piloting UShred at your mountain? We're partnering with forward-thinking resorts to revolutionize how skiers and snowboarders capture their best moments.</p>
-            <a href="mailto:info@ushred.co?subject=UShred%20Pilot%20Inquiry" class="cta-button">Contact Us</a>
+            <button onclick="openContactModal()" class="cta-button">Contact Us</button>
         </div>
     </section>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal" onclick="closeModalOnBackdrop(event)">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeContactModal()" aria-label="Close modal">&times;</button>
+            <div class="contact-modal-body">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <h2 class="modal-title">Let's Talk</h2>
+                <p class="modal-subtitle">Interested in bringing UShred to your resort or have questions about our platform? We'd love to hear from you.</p>
+                <a href="mailto:info@ushred.co?subject=UShred%20Inquiry" class="contact-email-button">
+                    <span>info@ushred.co</span>
+                </a>
+                <p class="modal-note">We typically respond within 24 hours</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -226,9 +220,6 @@
                         <a href="#how-it-works">How It Works</a>
                         <a href="#pricing">Pricing</a>
                         <a href="/privacy.html">Privacy Policy</a>
-                    </div>
-                    <div class="footer-contact">
-                        <a href="mailto:info@ushred.co">info@ushred.co</a>
                     </div>
                 </div>
             </div>
@@ -271,6 +262,29 @@
                 header.classList.remove('scrolled');
                 heroLogo.classList.remove('hidden');
                 headerLogo.classList.remove('visible');
+            }
+        });
+
+        // Contact Modal Functions
+        function openContactModal() {
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnBackdrop(event) {
+            if (event.target.id === 'contactModal') {
+                closeContactModal();
+            }
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                closeContactModal();
             }
         });
     </script>
